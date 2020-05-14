@@ -178,38 +178,36 @@ For example, variableInterestRate(200000, 0.04, 30) should console.log:
 "{Name}, with an interest rate of 0.06, your monthly rate is $1199"
 */
 
+
 function variableInterestRate(P, I, N){
-            
-    var iR =  I/12; 
-    // console.log(`Monthly Intrest Rate: ${iR}`)
-    
-    var pay = N * 12;
-    // console.log(`Periods: ${pay}`);
-    
-    var numerator = iR*(1+iR)**pay;
-    // console.log(`Numerator: ${numerator}`);
-    
-    var denominator =  (1+iR)**pay-1;
-    // console.log(`Denominator: ${denominator}`);
-    
-    var roundedDeno = Math.round((denominator*100)/100)
-    // console.log(`Denominator Rounded: ${roundedDeno}`);
-    
-    var monthlyRatePreRounded = P * (numerator/denominator);
-    
-    // console.log(`Pre Rounded Monthly Rate: ${monthlyRatePreRounded}`);
-    
-    var monthlyRate = monthlyRatePreRounded.toFixed()
 
-    console.log(
-        `{Name}, with an interest rate of ${I}, your monthly rate is $${monthlyRate}`
-        );
+let decreased = I * .50;
+let newPrecent = I - decreased;
+    for (let i = 0; i < 10; i++){
+        let result = newPrecent += 0.005
+        // console.log(result.toFixed(3))
 
+        var iR =  result/12; 
+        var pay = N * 12;
+        var numerator = iR*(1+iR)**pay;
+        var denominator =  (1+iR)**pay-1;
+        var roundedDeno = Math.round((denominator*100)/100)
+        var monthlyRatePreRounded = P * (numerator/denominator);
+        var monthlyRate = monthlyRatePreRounded.toFixed()
 
+        console.log(
+            `{Name}, with an interest rate of ${result.toFixed(3)}, your monthly rate is $${monthlyRate}`
+            );
+
+    }
 }
-// console.log(variableInterestRate(200000, 0.02, 30))
-// console.log(variableInterestRate(200000, 0.04, 30))
-// console.log(variableInterestRate(200000, 0.06, 30))
+
+// variableInterestRate(200000, 0.04, 30)
+
+
+
+
+
 
 
 
